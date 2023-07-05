@@ -6,15 +6,16 @@ import { getStrapiMedia } from "../utils/api-helpers";
 
 interface FeaturesProps {
   data: {
+    id:number;
     heading: string;
     description: string;
     feature: Feature[];
-    media:Picture;
+
   };
 }
 
 interface Feature {
-  icon: any;
+
   id: string;
   title: string;
   description: string;
@@ -22,6 +23,7 @@ interface Feature {
   newTab: boolean;
   url: string;
   text: string;
+  media:Picture;
 }
 
 interface Picture {
@@ -36,7 +38,7 @@ interface Picture {
 }
 
 export default function Features({ data }: FeaturesProps) {
-  
+  console.log(data);
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -50,7 +52,10 @@ export default function Features({ data }: FeaturesProps) {
               <div key={feature.id}>
                 <dt className="text-base font-semibold leading-7 text-gray-900">
                   <div className="mb-6 flex h-40 w-30 items-center justify-center rounded-lg">
-                    <Image src={getStrapiMedia(feature.media.data.attributes.url) ?? ''} alt= {feature.media.data.attributes.url ?? "Speed Wings HUman Resource" } width={100} height={100} className="h-100 w-100 text-white" aria-hidden="true" />
+                    <Image
+                     src={getStrapiMedia(feature.media.data.attributes.url) ?? ''} alt= {feature.media.data.attributes.url ?? "Speed Wings Human Resource" }
+                     width={100} height={100} className="h-100 w-100 text-white" aria-hidden="true"
+                      />
                   </div>
                   {feature.title}
                 </dt>

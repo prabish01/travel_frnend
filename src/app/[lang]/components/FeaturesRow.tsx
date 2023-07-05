@@ -33,7 +33,7 @@ interface Picture {
 }
 
 export default function FeaturesRow({ data }: FeaturesRowProps) {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="dark:bg-gray-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -48,7 +48,7 @@ export default function FeaturesRow({ data }: FeaturesRowProps) {
       <div className="relative overflow-hidden pt-16">
         <div className="animate-pulse mx-auto max-w-5xl px-6 lg:px-8">
           <Image
-            src={getStrapiMedia(data.picture.data.attributes.url)}
+            src={data.picture.data.attributes.url}
             alt={data.picture.data.attributes.alternativeText}
             className="rounded-xl ring-1 ring-white/10"
             width={data.picture.data.attributes.width}
@@ -61,7 +61,7 @@ export default function FeaturesRow({ data }: FeaturesRowProps) {
           {data.features.map((feature: FeaturesRow) => (
             <div key={feature.id} className="relative pl-9">
               <Image
-                src={feature?.icon?.data?.attributes.url}
+                src={getStrapiMedia(feature?.icon?.data?.attributes.url) ?? ""}
                 alt="dfhd"
                 className="left-1 top-1 h-15 w-15"
                 width={200}
