@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getStrapiMedia } from "../utils/api-helpers";
-
 
 
 interface FeaturesProps {
@@ -38,6 +36,7 @@ interface Picture {
 }
 
 export default function Features({ data }: FeaturesProps) {
+
   console.log(data);
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -49,13 +48,15 @@ export default function Features({ data }: FeaturesProps) {
           {/* <p>{data.description}</p> */}
           <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
           {data.feature.map((feature:Feature) => (
+         
               <div key={feature.id}>
                 <dt className="text-base font-semibold leading-7 text-gray-900">
                   <div className="mb-6 flex h-40 w-30 items-center justify-center rounded-lg">
-                    <Image
-                     src={getStrapiMedia(feature.media.data.attributes.url) ?? ''} alt= {feature.media.data.attributes.url ?? "Speed Wings Human Resource" }
+                  {/* { console.log(feature.media)} */}
+                    {/* <Image
+                     src={feature.media.data.attributes.url} alt= {feature.media.data.attributes.url ?? "Speed Wings Human Resource" }
                      width={100} height={100} className="h-100 w-100 text-white" aria-hidden="true"
-                      />
+                      /> */}
                   </div>
                   {feature.title}
                 </dt>

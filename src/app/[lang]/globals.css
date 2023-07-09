@@ -6,9 +6,7 @@
 body {
   @apply dark:bg-black;
 }
-p{
-  @apply text-justify;
-}
+
 h1,h2,h3{
   @apply tracking-wide text-orange-400;
 }

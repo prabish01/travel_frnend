@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { getMenuItems, getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
+import { getMenuItems,getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
 import { i18n } from "../../../i18n-config";
@@ -66,14 +66,10 @@ export default async function RootLayout({
   
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
-  const navbarLogoUrl = getStrapiMedia(
-    navbar.navbarLogo.logoImg.data.attributes.url
-  );
+  const navbarLogoUrl = navbar.navbarLogo.logoImg.data.attributes.url;
 
-  const footerLogoUrl = getStrapiMedia(
-    footer.footerLogo.logoImg.data.attributes.url
-  );
-  const menuItems=await getMenuItems();
+  const footerLogoUrl = footer.footerLogo.logoImg.data.attributes.url;
+  const menuItems = await getMenuItems();
   
 
   return (

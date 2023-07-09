@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import HighlightedText from "./HighlightedText";
-import { getStrapiMedia } from "../utils/api-helpers";
+
 import { renderButtonStyle } from "../utils/render-button-style";
 
 interface Button {
@@ -34,7 +34,7 @@ interface HeroProps {
 }
 
 export default function Hero({ data }: HeroProps) {
-  const imgUrl = getStrapiMedia(data.picture.data.attributes.url);
+  const imgUrl = data.picture.data.attributes.url;
 
   return (
     <section className="dark:bg-black dark:text-gray-100">
@@ -43,7 +43,7 @@ export default function Hero({ data }: HeroProps) {
           <HighlightedText
             text={data.title}
             tag="h1"
-            className="text-3xl leading-none sm:text-4xl mb-8"
+            className="text-3xl text-bold leading-none sm:text-4xl mb-8"
             color="dark:text-sky-400"
           />
 
@@ -66,15 +66,16 @@ export default function Hero({ data }: HeroProps) {
             ))}
           </div>
         </div>
-        <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+        <div className="flex items-center justify-center p-6 mt-2 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
           <Image
             src={imgUrl || ""}
             alt={
               data.picture.data.attributes.alternativeText || "Speed Wings Human Resource"
             }
-            className="animate-pulse h-172 w-200 object-contain  sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
+            className="h-172 w-200 object-contain  sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
             width={600}
             height={600}
+            priority={true}
           />
         </div>
       </div>

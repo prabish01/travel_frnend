@@ -18,7 +18,7 @@ const ContactFormSchema = Yup.object().shape({
 });
 
 const Contact = () => {
-    const [agreed, setAgreed] = useState(false);
+    // const [agreed, setAgreed] = useState(false);
 
     const token = process.env.NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN;
 

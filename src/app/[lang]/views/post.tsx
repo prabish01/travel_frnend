@@ -1,4 +1,4 @@
-import { formatDate, getStrapiMedia } from '@/app/[lang]/utils/api-helpers';
+import { formatDate } from '@/app/[lang]/utils/api-helpers';
 import { postRenderer } from '@/app/[lang]/utils/post-renderer';
 import Image from 'next/image';
 
@@ -37,8 +37,8 @@ interface Article {
 export default function Post({ data }: { data: Article }) {
     const { title, description, publishedAt, cover, authorsBio } = data.attributes;
     const author = authorsBio.data?.attributes;
-    const imageUrl = getStrapiMedia(cover.data?.attributes.url);
-    const authorImgUrl = getStrapiMedia(authorsBio.data?.attributes.avatar.data.attributes.url);
+    const imageUrl = cover.data?.attributes.url;
+    const authorImgUrl = authorsBio.data?.attributes.avatar.data.attributes.url;
 
     return (
         <article className="space-y-8 dark:bg-black dark:text-gray-50">

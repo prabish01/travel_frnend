@@ -4,7 +4,7 @@ import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import Email from "../components/Email";
-import FeatureRow from "../components/FeaturesRow";
+import FeatureRow from "../components/FeatureRow";
 import Statistic from "../components/Statistic";
 
 export function sectionRenderer(section: any, index: number) {
