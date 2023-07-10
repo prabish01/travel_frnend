@@ -62,11 +62,10 @@ const Contact = () => {
 
 
     return (
-        <div className=" bg-white px-6 py-20 sm:py-25 lg:px-8">
-
+        <div className="dark:bg-grey-900 px-6 py-20 sm:py-25 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
                 <h2>
-                    Let's get connected!
+                    Ready To Take The Next Step? Contact Us Now!
                 </h2>
                 <p className="mt-2 text-lg text-center leading-8 text-gray-600">
                 Seamless Staffing Solutions: Connecting Companies with Outstanding Professionals
@@ -75,8 +74,7 @@ const Contact = () => {
             <form
                 onSubmit={formik.handleSubmit}
                 method="POST"
-                className="mx-auto mt-16 max-w-xl sm:mt-20"
-            >
+                className="mx-auto mt-16 max-w-xl sm:mt-20">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     <div className="sm:col-span-2">
                         <label

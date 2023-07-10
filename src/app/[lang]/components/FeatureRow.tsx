@@ -31,13 +31,10 @@ interface Picture {
 }
 
 export default function FeatureRow({ data }: FeaturesRowProps) {
-  console.log(data);
-
   return (
-
-    
     <div className="dark:bg-gray-900 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      
+      <div className="mx-auto align-left max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-base font-semibold leading-7">{data.heading}</h2>
           <p className="mt-2 text-3xl text-center font-bold tracking-tight sm:text-4xl">
@@ -66,11 +63,12 @@ export default function FeatureRow({ data }: FeaturesRowProps) {
                 alt={feature?.icon?.data?.attributes.alternativeText}
                 className="left-1 top-1 h-13 w-13 ml-3 mb-1"
                 width={130}
-                height={130} />
-              <dt className="inline font-semibold">
-                {feature.title}
-              </dt>
-              <dd className="mt-1 text-base leading-7 text-gray-600">{feature.description}</dd>
+                height={130}
+              />
+              <dt className="inline font-semibold">{feature.title}</dt>
+              <dd className="mt-1 text-base text-justify leading-7 text-gray-600">
+                {feature.description}
+              </dd>
             </div>
           ))}
         </dl>

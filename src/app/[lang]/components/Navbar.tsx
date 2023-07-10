@@ -51,8 +51,7 @@ export default function Navbar({
 
 
   return (
-    <div className="dark:bg-black dark:text-gray-100">
-      <header className="bg-white dark:bg-black dark:text-gray-100">
+      <header className="dark:bg-gray-900 dark:text-gray-100">
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
           aria-label="Global"
@@ -250,6 +249,5 @@ export default function Navbar({
           </Dialog.Panel>
         </Dialog>
       </header>
-    </div>
   );
 }

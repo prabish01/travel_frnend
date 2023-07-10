@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-
 interface FeaturesProps {
   data: {
     id:number;
@@ -36,27 +35,24 @@ interface Picture {
 }
 
 export default function Features({ data }: FeaturesProps) {
-
-  console.log(data);
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="dark:bg-grey-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             {data.heading}
           </h2>
           {/* <p>{data.description}</p> */}
           <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
           {data.feature.map((feature:Feature) => (
-         
               <div key={feature.id}>
                 <dt className="text-base font-semibold leading-7 text-gray-900">
                   <div className="mb-6 flex h-40 w-30 items-center justify-center rounded-lg">
-                  {/* { console.log(feature.media)} */}
-                    {/* <Image
-                     src={feature.media.data.attributes.url} alt= {feature.media.data.attributes.url ?? "Speed Wings Human Resource" }
-                     width={100} height={100} className="h-100 w-100 text-white" aria-hidden="true"
-                      /> */}
+                    {console.log(feature.media.data.attributes.url)}
+                  <Image src={feature.media.data.attributes.url} 
+                  alt= {feature.media.data.attributes.url ?? "Speed Wings Human Resource" }
+                     width={100} height={100} className="h-100 w-100"
+                      />
                   </div>
                   {feature.title}
                 </dt>

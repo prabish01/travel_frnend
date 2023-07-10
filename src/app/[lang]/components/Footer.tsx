@@ -2,9 +2,6 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
-import Image from "next/image";
-import { CgWebsite } from "react-icons/cg";
-import { FaDiscord } from "react-icons/fa";
 import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 
 interface FooterLink {
@@ -43,7 +40,7 @@ function CategoryLink({ attributes }: CategoryLink) {
     <li className="flex">
       <Link
         href={`/blog/${attributes.slug}`}
-        className="text-sm leading-6 hover:dark:text-sky-400"
+        className="text-sm leading-6 hover:text-sky-400"
       >
         {attributes.name}
       </Link>
@@ -113,9 +110,9 @@ export default function Footer({
 
 
           </div>
-          <div className="mt-1 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div className="mt-1 grid grid-cols-2 gap-8  xl:col-span-2 xl:mt-0 dark:text-white-900">
             <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div className="mt-10 md:mt-0">
+              <div className="mt-8 md:mt-0">
                 <ul role="list" className="mt-6 space-y-4">
                 {categoryLinks.map((link: CategoryLink) => (
                 <CategoryLink key={link.id} {...link} />
@@ -129,7 +126,7 @@ export default function Footer({
                 <ul role="list" className="mt-6 space-y-4">
                 {menuLinks.map((item: FooterLink) => (
                     <li key={item.id}>
-                      <a href={item.url} className="text-sm leading-6 text-gray-900 hover:text-white">
+                      <a href={item.url} className="text-sm leading-6 dark:text-gray-300 hover:text-sky-400 dark:text-white-400">
                         {item.text}
                       </a>
                     </li>
@@ -138,8 +135,8 @@ export default function Footer({
               </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-gray-400"> ©{new Date().getFullYear()} Speed Wings Human Resource. All rights reserved. Designed by Atkans</p>
+        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-15 lg:mt-15">
+          <p className="text-xs leading-5 text-gray-400"> ©{new Date().getFullYear()} Speed Wings Human Resource. All rights reserved.</p>
         </div>
       </div>
       </div>

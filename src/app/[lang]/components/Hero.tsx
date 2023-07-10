@@ -37,7 +37,7 @@ export default function Hero({ data }: HeroProps) {
   const imgUrl = data.picture.data.attributes.url;
 
   return (
-    <section className="dark:bg-black dark:text-gray-100">
+    <section className="dark:bg-gray-900 dark:text-gray-100">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
         <div className="flex flex-col justify-center p-6 text-center rounded-lg lg:max-w-md xl:max-w-lg lg:text-left">
           <HighlightedText
@@ -56,7 +56,7 @@ export default function Hero({ data }: HeroProps) {
           <div className="flex flex-col space-y-4  sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             {data.buttons.map((button: Button, index: number) => (
               <Link
-                key={index}
+                key={button.id}
                 href={button.url}
                 target={button.newTab ? "_blank" : "_self"}
                 className={renderButtonStyle(button.type)}
@@ -68,7 +68,7 @@ export default function Hero({ data }: HeroProps) {
         </div>
         <div className="flex items-center justify-center p-6 mt-2 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
           <Image
-            src={imgUrl || ""}
+            src={imgUrl || "Speed Wings Human Resource: Best Recruitment Agency for Manpower solutions"}
             alt={
               data.picture.data.attributes.alternativeText || "Speed Wings Human Resource"
             }
