@@ -78,7 +78,7 @@ export default function Footer({
 }) {
 
   return(
-    <footer className="text-gray-900 dark:bg-gray-900" aria-labelledby="footer-heading">
+    <footer className="dark:bg-gray-900 text-gray-900" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>

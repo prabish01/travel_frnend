@@ -48,9 +48,8 @@ export default function Features({ data }: FeaturesProps) {
               <div key={feature.id}>
                 <dt className="text-base font-semibold leading-7 text-gray-900">
                   <div className="mb-6 flex h-40 w-30 items-center justify-center rounded-lg">
-                    {console.log(feature.media.data.attributes.url)}
                   <Image src={feature.media.data.attributes.url} 
-                  alt= {feature.media.data.attributes.url ?? "Speed Wings Human Resource" }
+                  alt= {feature.media.data.attributes.alternativeText ?? "Speed Wings Human Resource" }
                      width={100} height={100} className="h-100 w-100"
                       />
                   </div>

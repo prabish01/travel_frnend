@@ -74,14 +74,14 @@ export default async function RootLayout({
 
   return (
     <html lang={params.lang}>
-      <body className="dark:bg-gray-900">
+      <body>
         <Navbar
           menuItems={menuItems}
           logoUrl={navbarLogoUrl}
           logoText={navbar.navbarLogo.logoText}
         />
 
-        <main className="dark:bg-black dark:text-gray-100 min-h-screen">
+        <main className="dark:bg-gray-900 dark:text-gray-100 min-h-screen">
           {children}
         </main>
 

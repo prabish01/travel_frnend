@@ -62,7 +62,7 @@ const Contact = () => {
 
 
     return (
-        <div className="dark:bg-grey-900 px-6 py-20 sm:py-25 lg:px-8">
+        <div className="dark:bg-gray-900 px-6 py-20 sm:py-25 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
                 <h2>
                     Ready To Take The Next Step? Contact Us Now!
@@ -99,7 +99,7 @@ const Contact = () => {
                                     formik.errors.name
                                         ? "placeholder:text-red-600"
                                         : "placeholder:text-gray-400",
-                                    "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm sm:leading-6"
                                 )}
                             />
                         </div>
@@ -127,7 +127,7 @@ const Contact = () => {
                                     formik.errors.email
                                         ? "placeholder:text-red-600"
                                         : "placeholder:text-gray-400",
-                                    "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm sm:leading-6"
                                 )}
                             />
                         </div>
@@ -156,7 +156,7 @@ const Contact = () => {
                                     formik.errors.message
                                         ? "placeholder:text-red-600"
                                         : "placeholder:text-gray-400",
-                                    "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm sm:leading-6"
                                 )}
                             />
                         </div>
@@ -167,9 +167,9 @@ const Contact = () => {
                 checked={formik.values.privacyPolicy}
                 onChange={value=>formik.setFieldValue("privacyPolicy", value)}
                 className={classNames(
-                  formik.values.privacyPolicy ? "bg-indigo-600" : "bg-gray-200",
+                  formik.values.privacyPolicy ? "bg-sky-400" : "bg-gray-200",
                   formik.errors.privacyPolicy ? "ring-red-600" : "",
-                  "flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  "flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
                   )}
                 >
                   <span className="sr-only">Agree to policies</span>
@@ -184,7 +184,7 @@ const Contact = () => {
               </div>
               <Switch.Label className="text-sm leading-6 text-gray-600">
                 By selecting this, you agree to our{" "}
-                <a href="#" className="font-semibold text-indigo-600">
+                <a href="#" className="font-semibold text-sky-400">
                   privacy&nbsp;policy
                 </a>
                 .
@@ -194,7 +194,7 @@ const Contact = () => {
                 <div className="mt-10">
                     <button
                         type="submit"
-                        className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="block w-full rounded-md bg-blue-500 px-3.5 py-2.5 text-center text-sm font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
                     >
                         Let's talk
                     </button>
