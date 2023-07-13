@@ -1,4 +1,4 @@
 export const FALLBACK_SEO = {
-    title: "Strapi Starter Next Blog",
-    description: "Strapi Starter Next Blog",
+    title: "Speed Wings Human Resource",
+    description: "Speed Wings Human Resource is your go to agency for the manpower solutions",
 }

@@ -3,7 +3,9 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    webVitalsAttribution: ['CLS', 'LCP'],
   },
+
   images: {
     remotePatterns: [
       {
@@ -16,6 +18,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'speedwings.s3.eu-north-1.amazonaws.com',
       },
+      {
+        protocol: 'https',
+        hostname: "images.pexels.com",
+      }
     ],
   },
 }

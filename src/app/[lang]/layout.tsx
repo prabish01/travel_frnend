@@ -11,10 +11,12 @@ import {FALLBACK_SEO} from "@/app/[lang]/utils/constants";
 import Contact from './components/Contact';
 
 
+
 async function getGlobal(): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
-  if (!token) throw new Error("The Strapi API Token environment variable is not set.");
+
+  if (!token) throw new Error(" API Token environment variable is not set.");
 
   const path = `/global`;
   const options = { headers: { Authorization: `Bearer ${token}` } };
@@ -39,16 +41,48 @@ async function getGlobal(): Promise<any> {
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await getGlobal();
 
+  console.log("after",JSON.stringify(meta.data.attributes.favicon));
+
+
   if (!meta.data) return FALLBACK_SEO;
 
   const { metadata, favicon } = meta.data.attributes;
   const { url } = favicon.data.attributes;
 
   return {
+    applicationName: 'Speed Wings Human Resource',
     title: metadata.metaTitle,
     description: metadata.metaDescription,
+    referrer: 'origin-when-cross-origin',
     icons: {
       icon: [new URL(url, getStrapiURL())],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        noimageindex: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    themeColor: [
+      { media: '(prefers-color-scheme: light)', color: '#1899c8' },
+      { media: '(prefers-color-scheme: dark)', color: '#111827' },
+    ],
+    alternates: {
+      canonical: process.env.NEXT_PUBLIC_HOST ?? "https://client-website.com/",
+      languages: {
+        'en': 'https://speedwingshr.com/en',
+   
+      },
+
+      types: {
+        'application/rss+xml': 'https://speedwingshr.com/rss',
+      },
     },
   };
 }
