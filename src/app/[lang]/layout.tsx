@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import {FALLBACK_SEO} from "@/app/[lang]/utils/constants";
 import Contact from './components/Contact';
+import { getPageBySlug } from "./utils/get-page-by-slug";
+import { WebVitals } from "./components/WebVitals";
 
 
 
@@ -20,13 +22,12 @@ async function getGlobal(): Promise<any> {
 
   const path = `/global`;
   const options = { headers: { Authorization: `Bearer ${token}` } };
-
+  const cannonicaldomain="speedwingshr.com";
   const urlParamsObject = {
     populate: [
       "metadata.shareImage",
       "favicon",
       "notificationBanner.link",
-      "navbar.links",
       "navbar.navbarLogo.logoImg",
       "footer.footerLogo.logoImg",
       "footer.menuLinks",
@@ -41,18 +42,16 @@ async function getGlobal(): Promise<any> {
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await getGlobal();
 
-  console.log("after",JSON.stringify(meta.data.attributes.favicon));
-
-
   if (!meta.data) return FALLBACK_SEO;
 
   const { metadata, favicon } = meta.data.attributes;
   const { url } = favicon.data.attributes;
+  const domainURL=JSON.stringify(process.env.NEXT_PUBLIC_DOMAIN);
+  
 
   return {
+    metadataBase: new URL("https://speedwingshr.com"),
     applicationName: 'Speed Wings Human Resource',
-    title: metadata.metaTitle,
-    description: metadata.metaDescription,
     referrer: 'origin-when-cross-origin',
     icons: {
       icon: [new URL(url, getStrapiURL())],
@@ -62,7 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
       follow: true,
       googleBot: {
         index: true,
-        follow: false,
+        follow: true,
         noimageindex: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
@@ -74,14 +73,16 @@ export async function generateMetadata(): Promise<Metadata> {
       { media: '(prefers-color-scheme: dark)', color: '#111827' },
     ],
     alternates: {
-      canonical: process.env.NEXT_PUBLIC_HOST ?? "https://client-website.com/",
+      // canonical: {${process.env.NEXT_PUBLIC_DOMAIN}/myurl} ?? "https://client-website.com/",
+      // http://localhost:${process.env.PORT || 3000}
+      canonical: "/",
       languages: {
-        'en': 'https://speedwingshr.com/en',
+        'en': "/en",
    
       },
 
       types: {
-        'application/rss+xml': 'https://speedwingshr.com/rss',
+        'application/rss+xml': '/rss',
       },
     },
   };
@@ -104,6 +105,8 @@ export default async function RootLayout({
 
   const footerLogoUrl = footer.footerLogo.logoImg.data.attributes.url;
   const menuItems = await getMenuItems();
+  // const page = await getPageBySlug('home', params.lang);
+  // console.log("LayoutData=",page.data[0].attributes);
   
 
   return (
@@ -120,8 +123,6 @@ export default async function RootLayout({
         </main>
 
         <Banner data={notificationBanner} />
-
-        <Contact/> 
 
         <Footer
           logoUrl={footerLogoUrl}

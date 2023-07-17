@@ -6,8 +6,11 @@ import Pricing from "../components/Pricing";
 import Email from "../components/Email";
 import FeatureRow from "../components/FeatureRow";
 import Statistic from "../components/Statistic";
+import ArticleList from "../components/ArticleList";
+
 
 export function sectionRenderer(section: any, index: number) {
+
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;

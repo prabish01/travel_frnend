@@ -5,6 +5,7 @@ import { fetchAPI } from "../utils/fetch-api";
 import Loader from "../components/Loader";
 import Blog from "../views/blog-list";
 import PageHeader from "../components/PageHeader";
+import { useParams } from "next/navigation";
 
 interface Meta {
   pagination: {
@@ -18,6 +19,8 @@ export default function Profile() {
   const [meta, setMeta] = useState<Meta | undefined>();
   const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
+  // const paramsfromBlog=useParams();
+  // console.log("fvfmvkgmfvgvgmvkf==",paramsfromBlog);
 
   const fetchData = useCallback(async (start: number, limit: number) => {
     setLoading(true);
