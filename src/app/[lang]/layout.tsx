@@ -1,28 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { getMenuItems,getStrapiURL } from "./utils/api-helpers";
+import { getMenuItems, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
 import { i18n } from "../../../i18n-config";
 import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import {FALLBACK_SEO} from "@/app/[lang]/utils/constants";
-import Contact from './components/Contact';
-import { getPageBySlug } from "./utils/get-page-by-slug";
-import { WebVitals } from "./components/WebVitals";
-
+import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
 
 
 async function getGlobal(): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
-
   if (!token) throw new Error(" API Token environment variable is not set.");
 
   const path = `/global`;
   const options = { headers: { Authorization: `Bearer ${token}` } };
-  const cannonicaldomain="speedwingshr.com";
+
   const urlParamsObject = {
     populate: [
       "metadata.shareImage",
@@ -45,14 +40,13 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!meta.data) return FALLBACK_SEO;
 
   const { metadata, favicon } = meta.data.attributes;
+
   const { url } = favicon.data.attributes;
-  const domainURL=JSON.stringify(process.env.NEXT_PUBLIC_DOMAIN);
-  
 
   return {
     metadataBase: new URL("https://speedwingshr.com"),
-    applicationName: 'Speed Wings Human Resource',
-    referrer: 'origin-when-cross-origin',
+    applicationName: metadata.metaTitle,
+    referrer: "origin-when-cross-origin",
     icons: {
       icon: [new URL(url, getStrapiURL())],
     },
@@ -63,27 +57,40 @@ export async function generateMetadata(): Promise<Metadata> {
         index: true,
         follow: true,
         noimageindex: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     themeColor: [
-      { media: '(prefers-color-scheme: light)', color: '#1899c8' },
-      { media: '(prefers-color-scheme: dark)', color: '#111827' },
+      { media: "(prefers-color-scheme: light)", color: "#1899c8" },
+      { media: "(prefers-color-scheme: dark)", color: "#111827" },
     ],
     alternates: {
-      // canonical: {${process.env.NEXT_PUBLIC_DOMAIN}/myurl} ?? "https://client-website.com/",
-      // http://localhost:${process.env.PORT || 3000}
       canonical: "/",
       languages: {
-        'en': "/en",
-   
+        en: "/en",
       },
 
       types: {
-        'application/rss+xml': '/rss',
+        "application/rss+xml": "/rss",
       },
+    },
+    openGraph: {
+      title: metadata.metaTitle,
+      description: metadata.metaDescription,
+      url: "/",
+      siteName: metadata.metaTitle,
+      images: [
+        {
+          url: "/og.png",
+          width: 1800,
+          height: 1600,
+          alt: "Speed Wings Human Resource",
+        },
+      ],
+      locale: "en_US",
+      type: "website",
     },
   };
 }
@@ -98,16 +105,13 @@ export default async function RootLayout({
   const global = await getGlobal();
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global.data) return null;
-  
+
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
   const navbarLogoUrl = navbar.navbarLogo.logoImg.data.attributes.url;
 
   const footerLogoUrl = footer.footerLogo.logoImg.data.attributes.url;
   const menuItems = await getMenuItems();
-  // const page = await getPageBySlug('home', params.lang);
-  // console.log("LayoutData=",page.data[0].attributes);
-  
 
   return (
     <html lang={params.lang}>
@@ -123,7 +127,7 @@ export default async function RootLayout({
         </main>
 
         <Banner data={notificationBanner} />
-
+   
         <Footer
           logoUrl={footerLogoUrl}
           logoText={footer.footerLogo.logoText}

@@ -36,19 +36,15 @@ export default function ArticleList({
   data: Article[];
   // children?: React.ReactNode;
 }) {
-  // console.log("Component Working Now",articlesRefined);
-  // const { title, description, publishedAt, cover, authorsBio } = data.attributes;
-  // const author = authorsBio.data?.attributes;
-  // const imageUrl = cover.data?.attributes.url;
-  // const authorImgUrl = authorsBio.data?.attributes.avatar.data.attributes.url;
+
   const jsonLD = {};
 
   return (
     <>
-      <div className="bg-white py-24 sm:py-32">
+      <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight  sm:text-4xl">
               From the blog
             </h2>
             <p className="mt-2 text-lg leading-8 text-gray-600">
@@ -63,13 +59,10 @@ export default function ArticleList({
               >
                 <Link
                   href={`/${article.attributes?.category?.data.attributes.slug}/${article.attributes.slug}`}
-                  className="relative z-10 r.ounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                  className="relative z-10 r.ounded-full dark:bg-gray-900 px-3 py-1.5 font-medium dark:text-gray-400 "
                 >
                   <div className="relative w-full">
-                    {/* {console.log(
-                    "Ids",
-                    article.attributes.category.data.attributes.name
-                  )} */}
+
                     <Image
                       src={article.attributes.cover.data.attributes.url}
                       alt={
@@ -86,13 +79,13 @@ export default function ArticleList({
                     <div className="mt-8 flex items-center gap-x-4 text-xs">
                       <li
                         
-                        className="relative z-10 r.ounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                        className="relative z-10 r.ounded-full px-3 py-1.5 font-medium hover:bg-gray-100"
                       >
                         {article.attributes?.category?.data.attributes.name}
                       </li>
                     </div>
                     <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      <h3 className="mt-3 text-lg font-semibold leading-6  group-hover:text-sky-600">
                         <span className="absolute inset-0" />
                         {article.attributes.title}
                       </h3>

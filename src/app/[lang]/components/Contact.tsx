@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+// import { useState } from "react";
 // import { Switch } from "@headlessui/react";
 import { getStrapiURL } from "../utils/api-helpers";
 import { useFormik } from "formik";
@@ -64,7 +64,7 @@ const Contact = () => {
     return (
         <div className="dark:bg-gray-900 px-6 py-20 sm:py-25 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-                <h2>
+                <h2 className="font-bold">
                     Ready To Take The Next Step? Contact Us Now!
                 </h2>
                 <p className="mt-2 text-lg text-center leading-8 text-gray-600">

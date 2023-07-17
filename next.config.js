@@ -3,7 +3,6 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    webVitalsAttribution: ['CLS', 'LCP'],
   },
 
   images: {

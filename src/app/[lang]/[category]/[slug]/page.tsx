@@ -31,18 +31,46 @@ async function getMetaData(slug: string) {
     return response.data;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string ,category:string,lang:string} }): Promise<Metadata> {
     const meta = await getMetaData(params.slug);
+    
+
     const metadata = meta[0].attributes.seo;
+    const imgUrl=meta[0].attributes.seo.shareImage.data.attributes.url;
+    
 
     return {
         title: metadata.metaTitle,
         description: metadata.metaDescription,
+        alternates: {
+            canonical: `/${params.lang}/${params.category}/${params.slug}`,
+            types: {
+              'application/rss+xml': '/rss',
+            },
+        },
+        openGraph: {
+          title: metadata.metaTitle,
+          description: metadata.metaDescription,
+          url: `/${params.lang}/${params.category}/${params.slug}`,
+          images: [
+    
+            {
+              url: imgUrl,
+              width: 1800,
+              height: 1600,
+              alt: "Speed Wings Human Resource",
+            },
+          ],
+          type: "article",
+        },
+        
     };
 }
 
+
 export default async function PostRoute({ params }: { params: { slug: string } }) {
     const { slug } = params;
+
     const data = await getPostBySlug(slug);
     if (data.data.length === 0) return <h2>no post found</h2>;
     return <Post data={data.data[0]} />;

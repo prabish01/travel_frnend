@@ -14,15 +14,9 @@ export default async function RootRoute({
   if (page.data.length == 0 && params.lang !== "en") return <LangRedirect />;
   if (page.data.length === 0) return null;
 
-  // console.log(page.data);
+
 
   const {
-    shortName,
-    slug,
-    heading,
-    description,
-    locale,
-    seo,
     articles,
     contentSections,
     contactFormDisplay,
@@ -30,19 +24,16 @@ export default async function RootRoute({
   } = page.data[0].attributes;
 
   const articlesRefined = articles.data;
-  // console.log(articles.data.attributes)
+
   return (
     <>
       {contentSections.map((section: any, index: number) =>
         sectionRenderer(section, index)
       )}
-{/* Not currently implemented due to bug in the backend. Replace this in future */}
-      {/* {articleDisplay && <ArticleList data={articlesRefined} />} */}
 
-      {/* {contactFormDisplay && <Contact />} */}
-      {articlesRefined.length>0 && <ArticleList data={articlesRefined}/> }
+      {articleDisplay && <ArticleList data={articlesRefined} />} 
 
-      <Contact/>
+       {contactFormDisplay && <Contact />}
 
     </>
   );

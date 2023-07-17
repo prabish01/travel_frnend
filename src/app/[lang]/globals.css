@@ -60,8 +60,9 @@ h2{
 
 /* Typographic replacements */
 .rich-text p {
-  @apply mb-4;
+  @apply mb-4 text-justify;
 }
+
 
 /* Emphasis */
 .rich-text strong {
@@ -89,9 +90,7 @@ h2{
 .rich-text ol {
   @apply list-decimal pl-4 mb-4;
 }
-.rich-text p{
-  @apply text-justify;
-}
+
 .rich-text li {
   @apply mb-2;
 }

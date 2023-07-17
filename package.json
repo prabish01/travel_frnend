@@ -21,6 +21,7 @@
     "formik": "^2.4.2",
     "negotiator": "^0.6.3",
     "next": "^13.4.2",
+    "next-seo": "^6.1.0",
     "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -41,7 +42,7 @@
   },
   "husky": {
     "hooks": {
-       "pre-commit": "echo ”[Husky] pre-commit”"
+      "pre-commit": "echo ”[Husky] pre-commit”"
     }
- }
+  }
 }
