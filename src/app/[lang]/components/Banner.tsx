@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Link from "next/link";
 
 function colors(type: string) {
   switch (type) {
@@ -41,10 +42,10 @@ export default function Banner({ data }: BannerProps) {
         )}
       >
         <p className="text-sm leading-6 text-white">
-          <a href={link.url} target={link.newTab ? "_blank" : "_self"}>
+          <Link href={link.url} target={link.newTab ? "_blank" : "_self"}>
             <strong className="font-semibold">{heading}</strong> {text}&nbsp;
             <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </p>
       </div>
     </div>

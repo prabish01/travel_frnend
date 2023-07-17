@@ -89,7 +89,9 @@ h2{
 .rich-text ol {
   @apply list-decimal pl-4 mb-4;
 }
-
+.rich-text p{
+  @apply text-justify;
+}
 .rich-text li {
   @apply mb-2;
 }

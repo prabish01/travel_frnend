@@ -39,7 +39,7 @@ function CategoryLink({ attributes }: CategoryLink) {
   return (
     <li className="flex">
       <Link
-        href={`/blog/${attributes.slug}`}
+        href={`/${attributes.slug}`}
         className="text-sm leading-6 hover:text-sky-400"
       >
         {attributes.name}
@@ -94,7 +94,7 @@ export default function Footer({
             <div className="flex space-x-6">
               {socialLinks.map((link: FooterLink) => {
                 return (
-                  <a
+                  <Link
                     key={link.id}
                     rel="noopener noreferrer"
                     href={link.url}
@@ -103,7 +103,7 @@ export default function Footer({
                     className="text-gray-900 hover:text-gray-600"
                   >
                     <RenderSocialIcon social={link.social} />
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -126,9 +126,9 @@ export default function Footer({
                 <ul role="list" className="mt-6 space-y-4">
                 {menuLinks.map((item: FooterLink) => (
                     <li key={item.id}>
-                      <a href={item.url} className="text-sm leading-6 dark:text-gray-300 hover:text-sky-400 dark:text-white-400">
+                      <Link href={item.url} className="text-sm leading-6 dark:text-gray-300 hover:text-sky-400 dark:text-white-400">
                         {item.text}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

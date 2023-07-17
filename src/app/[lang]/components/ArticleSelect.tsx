@@ -49,22 +49,22 @@ export default function ArticleSelect({
             if (category.attributes.articles.data.length === 0) return null;
             return (
               <Link
-                href={`/blog/${category.attributes.slug}`}
+                href={`/${category.attributes.slug}`}
                 className={selectedFilter(
                   category.attributes.slug,
                   params.category
                 )}
               >
-                #{category.attributes.name}
+                {category.attributes.name}
               </Link>
             );
           })}
           <Link href={"/blog"} className={selectedFilter("", "filter")}>
-            #all
+            Explore everything!
           </Link>
         </div>
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <h4 className="text-lg font-semibold">Other Posts You May Like</h4>
           <ul className="ml-4 space-y-1 list-disc">
             {articles.map((article: Article) => {
@@ -72,7 +72,7 @@ export default function ArticleSelect({
                 <li>
                   <Link
                     rel="noopener noreferrer"
-                    href={`/blog/${params.category}/${article.attributes.slug}`}
+                    href={`/${params.category}/${article.attributes.slug}`}
                     className={`${
                       params.slug === article.attributes.slug &&
                       "text-sky-400"
@@ -84,7 +84,7 @@ export default function ArticleSelect({
               );
             })}
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

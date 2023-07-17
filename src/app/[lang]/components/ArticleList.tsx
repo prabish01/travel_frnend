@@ -11,11 +11,12 @@ interface Article {
     updatedAt: string;
     publishedAt: string;
     category: {
-      data: { 
-        attributes: { 
+      data: {
+        attributes: {
           name: string;
-         } 
-      }
+          slug:string;
+        };
+      };
     };
     cover: {
       data: {
@@ -40,9 +41,7 @@ export default function ArticleList({
   // const author = authorsBio.data?.attributes;
   // const imageUrl = cover.data?.attributes.url;
   // const authorImgUrl = authorsBio.data?.attributes.avatar.data.attributes.url;
-  const jsonLD={
-    
-  }
+  const jsonLD = {};
 
   return (
     <>
@@ -62,44 +61,47 @@ export default function ArticleList({
                 key={article.id}
                 className="flex flex-col items-start justify-between"
               >
-                <div className="relative w-full">
-                  {/* {console.log(
+                <Link
+                  href={`/${article.attributes?.category?.data.attributes.slug}/${article.attributes.slug}`}
+                  className="relative z-10 r.ounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                >
+                  <div className="relative w-full">
+                    {/* {console.log(
                     "Ids",
                     article.attributes.category.data.attributes.name
                   )} */}
-                  <Image
-                    src={article.attributes.cover.data.attributes.url}
-                    alt={
-                      article.attributes.cover.data.attributes
-                        .alternativeText ?? "Speed Wings Human Resource"
-                    }
-                    height={100}
-                    width={100}
-                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                  />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-                </div>
-                <div className="max-w-xl">
-                  <div className="mt-8 flex items-center gap-x-4 text-xs">
-                    <Link
-                      href={article.attributes.slug}
-                      className="relative z-10 r.ounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                    >
-                      {article.attributes?.category?.data.attributes.name}
-                    </Link>
+                    <Image
+                      src={article.attributes.cover.data.attributes.url}
+                      alt={
+                        article.attributes.cover.data.attributes
+                          .alternativeText ?? "Speed Wings Human Resource"
+                      }
+                      height={100}
+                      width={100}
+                      className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                    />
+                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
-                  <div className="group relative">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                      <a href={article.attributes.slug}>
+                  <div className="max-w-xl">
+                    <div className="mt-8 flex items-center gap-x-4 text-xs">
+                      <li
+                        
+                        className="relative z-10 r.ounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                      >
+                        {article.attributes?.category?.data.attributes.name}
+                      </li>
+                    </div>
+                    <div className="group relative">
+                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                         <span className="absolute inset-0" />
                         {article.attributes.title}
-                      </a>
-                    </h3>
-                    <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                      {article.attributes.description}
-                    </p>
+                      </h3>
+                      <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                        {article.attributes.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </article>
             ))}
           </div>
