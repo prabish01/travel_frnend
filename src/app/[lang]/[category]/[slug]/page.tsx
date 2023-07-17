@@ -1,6 +1,8 @@
 import { fetchAPI } from '@/app/[lang]/utils/fetch-api';
 import Post from '@/app/[lang]/views/post';
 import type { Metadata } from 'next';
+import { ArticleJsonLd } from "next-seo";
+
 
 async function getPostBySlug(slug: string) {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -68,12 +70,33 @@ export async function generateMetadata({ params }: { params: { slug: string ,cat
 }
 
 
-export default async function PostRoute({ params }: { params: { slug: string } }) {
-    const { slug } = params;
+export default async function PostRoute({ params }: { params: { slug: string,lang:string,category:string } }) {
+    const { lang,slug,category } = params;
+    // console.log("My dta1111111",lang,slug,category)
 
     const data = await getPostBySlug(slug);
+    const { title, description, publishedAt, cover,updatedAt} = data.data[0].attributes;
+    const imageUrl = cover.data?.attributes.url;
     if (data.data.length === 0) return <h2>no post found</h2>;
-    return <Post data={data.data[0]} />;
+
+    return (
+        <>
+        <ArticleJsonLd
+        useAppDir={true}
+        type="BlogPosting"
+        url={`${process.env.NEXT_PUBLIC_DOMAIN}/${params.category}/${params.slug}`}
+        title={title}
+        images={[imageUrl]}
+        datePublished={publishedAt}
+        dateModified={updatedAt}
+        authorName="Aaraj Bhattarai"
+        description={description}
+      />
+    
+    <Post data={data.data[0]} />
+    </>
+    );
+
 }
 
 export async function generateStaticParams() {
