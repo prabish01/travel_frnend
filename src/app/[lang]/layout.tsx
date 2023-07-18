@@ -8,6 +8,7 @@ import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
+import { LogoJsonLd } from "next-seo";
 
 
 async function getGlobal(): Promise<any> {
@@ -121,6 +122,11 @@ export default async function RootLayout({
           logoUrl={navbarLogoUrl}
           logoText={navbar.navbarLogo.logoText}
         />
+        <LogoJsonLd
+        useAppDir={true}
+      logo={navbarLogoUrl}
+      url={`${process.env.NEXT_PUBLIC_DOMAIN}`}
+    />
 
         <main className="dark:bg-gray-900 dark:text-gray-100 min-h-screen">
           {children}

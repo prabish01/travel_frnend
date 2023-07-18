@@ -3,6 +3,7 @@
 import { Disclosure } from '@headlessui/react';
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
 
+
 interface QuestionAnswer {
   id: string;
   question:string;
@@ -22,7 +23,10 @@ interface QuestionAnswerProps {
 export default function Pricing({ data }: QuestionAnswerProps) {
 
   return(
-    <div>
+    <>
+      
+
+
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-30">
         <div className="mx-auto max-w-4xl divide-y divide-white/10">
           <h2 className="leading-10 text-center dark:text-white">Frequently asked questions</h2>
@@ -49,11 +53,12 @@ export default function Pricing({ data }: QuestionAnswerProps) {
                   </>
                 )}
               </Disclosure>
+              
             ))}
           </dl>
         </div>
       </div>
-    </div>
+    </>
 
   );
 }

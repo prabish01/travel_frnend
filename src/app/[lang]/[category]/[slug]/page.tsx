@@ -71,8 +71,8 @@ export async function generateMetadata({ params }: { params: { slug: string ,cat
 
 
 export default async function PostRoute({ params }: { params: { slug: string,lang:string,category:string } }) {
-    const { lang,slug,category } = params;
-    // console.log("My dta1111111",lang,slug,category)
+    const { slug} = params;
+
 
     const data = await getPostBySlug(slug);
     const { title, description, publishedAt, cover,updatedAt} = data.data[0].attributes;

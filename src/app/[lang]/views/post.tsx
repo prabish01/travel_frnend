@@ -1,6 +1,6 @@
 import { formatDate } from "@/app/[lang]/utils/api-helpers";
 import { postRenderer } from "@/app/[lang]/utils/post-renderer";
-import { ArticleJsonLd } from "next-seo";
+
 import Image from "next/image";
 
 interface Article {
@@ -75,7 +75,7 @@ export default function Post({ data }: { data: Article}) {
                 />
               )}
               <p className="text-md dark:text-sky-400">
-                {author && author.name} • {formatDate(publishedAt)}
+                {author?.name || "Saroj Phuyal"} • {formatDate(publishedAt)}
               </p>
             </div>
           </div>

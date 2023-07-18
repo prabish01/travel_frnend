@@ -4,6 +4,7 @@ import HighlightedText from "./HighlightedText";
 
 import { renderButtonStyle } from "../utils/render-button-style";
 
+
 interface Button {
   id: string;
   url: string;
@@ -35,6 +36,7 @@ interface HeroProps {
 
 export default function Hero({ data }: HeroProps) {
   const imgUrl = data.picture.data.attributes.url;
+  const alternativeText =  data.picture.data.attributes.alternativeText;
 
   return (
     <section className="dark:bg-gray-900 dark:text-gray-100">
@@ -70,13 +72,15 @@ export default function Hero({ data }: HeroProps) {
           <Image
             src={imgUrl || "Speed Wings Human Resource: Best Recruitment Agency for Manpower solutions"}
             alt={
-              data.picture.data.attributes.alternativeText || "Speed Wings Human Resource"
+              alternativeText || "Speed Wings Human Resource"
             }
             className="h-172 w-200 object-contain  sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
             width={600}
             height={600}
             priority={true}
           />
+        {/* <ImageSD data={{ image: imgUrl, altText: alternativeText }} /> */}
+
         </div>
       </div>
     </section>
