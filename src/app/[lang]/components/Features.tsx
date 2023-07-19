@@ -36,39 +36,46 @@ interface Picture {
 
 export default function Features({ data }: FeaturesProps) {
   return (
+    
     <div className="dark:bg-grey-900 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center">
+      <div className="mx-auto grid content-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="flex justify-center h-full"> {/* Added div with flex and justify-center */}
+          <h2 className="font-bold tracking-normal sm:text-4xl my-auto"> {/* Added 'my-auto' class */}
             {data.heading}
           </h2>
-          {/* <p>{data.description}</p> */}
-          <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
-          {data.feature.map((feature:Feature) => (
-              <div key={feature.id}>
-                <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="mb-6 flex h-40 w-30 items-center justify-center rounded-lg">
-                  <Image src={feature.media.data.attributes.url} 
-                  alt= {feature.media.data.attributes.alternativeText ?? "Speed Wings Human Resource" }
-                     width={100} height={100} className="h-100 w-100"
-                      />
-                  </div>
-                  {feature.title}
-                </dt>
-                <dd className="mt-1 text-base leading-7 text-gray-600">{feature.description}</dd>
-                {feature.showLink && feature.url && feature.text && (
-                    <p className="mt-6">
-                      <Link href={feature.url} className="text-sm font-semibold leading-6 text-blue-400">
-                        {feature.text} <span aria-hidden="true">→</span>
-                      </Link>
-                    </p>
-                    )}
-              </div>
-            ))}
-          </dl>
         </div>
+        {/* <p>{data.description}< /p> */}
+        <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
+          {data.feature.map((feature: Feature) => (
+            <div key={feature.id}>
+              <dt className="text-base font-semibold leading-7 ">
+                <div className="mb-4 flex h-50 w-50 items-center justify-center">
+                  <Image
+                    src={feature.media.data.attributes.url}
+                    alt={feature.media.data.attributes.alternativeText ?? "Speed Wings Human Resource"}
+                    width={130}
+                    height={130}
+                    className="h-100 w-100"
+                  />
+                </div>
+                {feature.title}
+              </dt>
+              <dd className="mt-1 text-base text-justify leading-7 dark:text-gray-400">{feature.description}</dd>
+              {feature.showLink && feature.url && feature.text && (
+                <p className="mt-6">
+                  <Link href={feature.url} className="text-sm font-semibold leading-6 text-blue-400">
+                    {feature.text} <span aria-hidden="true">→</span>
+                  </Link>
+                </p>
+              )}
+            </div>
+          ))}
+        </dl>
       </div>
     </div>
+  </div>
+  
 
   );
  

@@ -64,8 +64,8 @@ const Contact = () => {
     return (
         <div className="dark:bg-gray-900 px-6 py-20 sm:py-25 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-                <h2 className="font-bold">
-                    Ready To Take The Next Step? Contact Us Now!
+                <h2 className="font-semibold">
+                    Ready To Take The Next Step?
                 </h2>
                 <p className="mt-2 text-lg text-center leading-8 text-gray-600">
                 Seamless Staffing Solutions: Connecting Companies with Outstanding Professionals

@@ -19,7 +19,15 @@ h3{
 h2{
   @apply text-5xl;
 }
-
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 7px;
+  @apply bg-sky-400;
+  transform-origin: 0%;
+}
 /******************************************* 
   Rich Text Styles
 *******************************************/ 

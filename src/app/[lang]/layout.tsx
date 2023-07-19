@@ -128,9 +128,10 @@ export default async function RootLayout({
       url={`${process.env.NEXT_PUBLIC_DOMAIN}`}
     />
 
-        <main className="dark:bg-gray-900 dark:text-gray-100 min-h-screen">
+        <main className="dark:bg-gray-900 dark:text-gray-400 min-h-screen">
           {children}
         </main>
+        
 
         <Banner data={notificationBanner} />
    

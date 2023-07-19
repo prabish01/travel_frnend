@@ -2,6 +2,8 @@ import { formatDate } from "@/app/[lang]/utils/api-helpers";
 import { postRenderer } from "@/app/[lang]/utils/post-renderer";
 
 import Image from "next/image";
+import PageScrollProgressBar from "../components/PageScrollProgessBar";
+
 
 interface Article {
   id: number;
@@ -46,11 +48,11 @@ export default function Post({ data }: { data: Article}) {
   const imageUrl = cover.data?.attributes.url;
   const authorImgUrl = authorsBio.data?.attributes.avatar.data.attributes.url;
 
+ 
 
   return (
     <>
-
-
+      <PageScrollProgressBar/>
       <article className="space-y-8 dark:bg-gray-900 dark:text-gray-50">
         {imageUrl && (
           <Image
