@@ -52,11 +52,11 @@ export async function generateMetadata(): Promise<Metadata> {
       icon: [new URL(url, getStrapiURL())],
     },
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       googleBot: {
-        index: true,
-        follow: true,
+        index: false,
+        follow: false,
         noimageindex: true,
         "max-video-preview": -1,
         "max-image-preview": "large",
