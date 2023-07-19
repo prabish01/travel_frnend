@@ -46,7 +46,7 @@ export default function Features({ data }: FeaturesProps) {
           </h2>
         </div>
         {/* <p>{data.description}< /p> */}
-        <dl className="col-span-2  grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
+        <dl className="col-span-2  grid grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2">
           {data.feature.map((feature: Feature) => (
             <div key={feature.id} className="rounded-2xl p-4 bg-gray-100">
               <dt className="text-base font-semibold leading-7 ">
