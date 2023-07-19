@@ -59,9 +59,9 @@ export default function FeatureRow({ data }: FeaturesRowProps) {
       </div>
 
       <div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
-        <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
+        <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
           {data.features.map((feature: FeaturesRow) => (
-            <div key={feature.id} className="relative flex flex-col items-center rounded-2xl p-4 bg-gray-100 ">
+            <div key={feature.id} className="relative flex flex-col items-center rounded-2xl p-5 bg-gray-100 ">
               <Image
                 src={feature?.icon?.data?.attributes.url}
                 alt={feature?.icon?.data?.attributes.alternativeText}
