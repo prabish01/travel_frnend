@@ -24,12 +24,10 @@ export default function Pricing({ data }: QuestionAnswerProps) {
 
   return(
     <>
-      
 
-
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-30">
+      <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8 lg:py-15">
         <div className="mx-auto max-w-4xl divide-y divide-white/10">
-          <h2 className="leading-10 text-4xl font-semibold text-center dark:text-white">Frequently asked questions</h2>
+          <h2 className="leading-10 text-4xl font-semibold text-center dark:text-white">{data.title}</h2>
           <dl className="mt-10 space-y-6 divide-y dark:divide-orange/400">
             {data.plans.map((faq:QuestionAnswer) => (
               <Disclosure as="div" key={faq.question} className="pt-6">

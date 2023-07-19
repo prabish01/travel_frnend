@@ -37,7 +37,7 @@ interface Picture {
 export default function Features({ data }: FeaturesProps) {
   return (
     
-    <div className="dark:bg-grey-900 py-14 sm:py-20">
+    <div className="dark:bg-grey-900 py-12 sm:py-16">
     <div className="rounded-2xl bg-gray-50 p-8 text-sm leading-6 mx-auto max-w-7xl px-6 lg:px-8 flex items-center">
       <div className="mx-auto grid content-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         <div className="flex justify-center h-full"> {/* Added div with flex and justify-center */}
