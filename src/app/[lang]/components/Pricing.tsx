@@ -24,8 +24,7 @@ interface QuestionAnswerProps {
  /> */}
 
 export default function Pricing({ data }: QuestionAnswerProps) {
-  let questionAnswer:any[] = []
-
+  let questionAnswer:any[] = [];
 const mainEntity=data.plans.map((faq)=>{
  
   questionAnswer.push({
@@ -34,7 +33,6 @@ const mainEntity=data.plans.map((faq)=>{
   })
   return questionAnswer
 });
-
   return(
     <>
     
