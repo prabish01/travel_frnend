@@ -36,9 +36,7 @@ export default function ArticleList({
   data: Article[];
   // children?: React.ReactNode;
 }) {
-
   const jsonLD = {};
-
   return (
     <>
       <div className="py-12 sm:py-16">

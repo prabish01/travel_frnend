@@ -33,7 +33,7 @@ interface Picture {
 export default function FeatureRow({ data }: FeaturesRowProps) {
   return (
     <div className="py-12 sm:py-16">
-      <div className="flex flex-row-reverse justify-center items-center">
+      <div className="lg:flex lg:flex-row lg:justify-center lg:items-center">
         <div className="mx-auto align-center align-left max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="mt-30 text-base font-semibold leading-7">
