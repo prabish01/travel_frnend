@@ -47,7 +47,8 @@ export default function Testimonials({ data }: TestimonialsProps) {
                   </blockquote>
                   <figcaption className="mt-6 flex items-center gap-x-4">
                     <Image className="h-10 w-10 rounded-full bg-gray-50" 
-                    src={testimonial.picture.data.attributes.url} alt="Speed WIngs HUman Resource"
+                    src={testimonial.picture.data.attributes.url} 
+                    alt={testimonial.picture.data.attributes.alternativeText} 
                     width={100}
                     height={100}
                      />

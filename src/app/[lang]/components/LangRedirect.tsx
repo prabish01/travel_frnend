@@ -24,7 +24,7 @@ export default function LangRedirect() {
         <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
           <Image
             src="https://images.pexels.com/photos/409701/pexels-photo-409701.jpeg"
-            alt="city view"
+            alt="Speed Wings HUman Resource"
             className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
             width={600}
             height={600}

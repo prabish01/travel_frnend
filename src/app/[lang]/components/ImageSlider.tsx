@@ -26,7 +26,7 @@ export default function Slideshow({ data }: { data: SlidShowProps }) {
           const imageUrl = fadeImage.attributes.url;
           return (
             <div key={index}>
-              {imageUrl && <Image className="w-full h-96 object-cover rounded-lg" height={400} width={600} alt="alt text" src={imageUrl} />}
+              {imageUrl && <Image className="w-full h-96 object-cover rounded-lg" height={400} width={600} alt="Speed Wings HUman Resource" src={imageUrl} />}
             </div>
           );
         })}

@@ -15,6 +15,7 @@ interface Article {
       data: {
         attributes: {
           url: string;
+          alternativeText:string;
         };
       };
     };
@@ -34,6 +35,7 @@ interface Article {
             data: {
               attributes: {
                 url: string;
+                alternativeText:string;
               };
             };
           };
@@ -55,6 +57,7 @@ export default function PostList({
       <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {articles.map((article) => {
           const imageUrl = article.attributes.cover.data?.attributes.url;
+          const alternativeText= article.attributes.cover.data?.attributes.alternativeText;
           const category = article.attributes.category.data?.attributes;
           const authorsBio = article.attributes.authorsBio.data?.attributes;
 
@@ -68,7 +71,7 @@ export default function PostList({
             >
               {imageUrl && (
                 <Image
-                  alt="presentation"
+                  alt= {alternativeText}
                   width="240"
                   height="240"
                   className="object-cover w-full h-44 "

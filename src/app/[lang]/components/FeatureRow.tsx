@@ -36,7 +36,7 @@ export default function FeatureRow({ data }: FeaturesRowProps) {
       <div className="lg:flex lg:flex-row lg:justify-center lg:items-center">
         <div className="mx-auto align-center align-left max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
-            <h2 className="mt-30 text-base font-semibold leading-7">
+            <h2 className="mt-30 text-base text-center font-semibold leading-7">
               {data.heading}
             </h2>
             <p className="mt-2 text-3xl text-center font-bold tracking-tight sm:text-4xl">
@@ -65,7 +65,7 @@ export default function FeatureRow({ data }: FeaturesRowProps) {
               <Image
                 src={feature?.icon?.data?.attributes.url}
                 alt={feature?.icon?.data?.attributes.alternativeText}
-                className="left-1 top-1 h-13 w-13 mr-8 mb-2"
+                className="left-1 top-1 h-13 w-13 mb-2"
                 width={130}
                 height={130}
               />
