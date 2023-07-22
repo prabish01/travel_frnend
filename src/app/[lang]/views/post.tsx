@@ -52,7 +52,7 @@ export default function Post({ data }: { data: Article}) {
 
   return (
     <>
-      <PageScrollProgressBar/>
+      {/* <PageScrollProgressBar/> */}
       <article className="space-y-8 dark:bg-gray-900 dark:text-gray-50">
         {imageUrl && (
           <Image

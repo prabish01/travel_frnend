@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+// import { FadeIn } from "./FadeIn";
 
 interface FeaturesProps {
   data: {
@@ -48,6 +49,7 @@ export default function Features({ data }: FeaturesProps) {
         {/* <p>{data.description}< /p> */}
         <dl className="col-span-2  grid grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2">
           {data.feature.map((feature: Feature) => (
+            // <FadeIn>
             <div key={feature.id} className="rounded-2xl p-4 bg-gray-100 dark:bg-gray-800">
               <dt className="text-base font-semibold leading-7 dark:text-slate-50 ">
                 <div className="mb-4 flex h-50 w-50 items-center justify-center">
@@ -70,6 +72,7 @@ export default function Features({ data }: FeaturesProps) {
                 </p>
               )}
             </div>
+            // </FadeIn>
           ))}
         </dl>
       </div>
