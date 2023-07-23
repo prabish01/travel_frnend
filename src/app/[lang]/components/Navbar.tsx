@@ -108,7 +108,7 @@ export default function Navbar({
                                 <div className="flex-auto">
                                   <Link
                                     href={item.slug}
-                                    className="block font-semibold text-gray-900"
+                                    className="block font-semibold text-gray-900 hover:text-sky-400"
                                   >
                                     {item.title}
                                     <span className="absolute inset-0" />
@@ -161,7 +161,7 @@ export default function Navbar({
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10 " />
-        <Dialog.Panel className="fixed dark:bg-gray-900 dark:text-slate-50 inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark: bg-gray-900">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full text-gray-900 bg-slate-50 overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:text-slate-50 ">
           <div className="flex items-center justify-between">
             <Link href="/" className="p-1.5">
               <span className="sr-only">{logoText}</span>
