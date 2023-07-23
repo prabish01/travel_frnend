@@ -132,12 +132,12 @@ export default function Navbar({
                 key={menu.id}
               >
                 <Popover className="relative">
-                  <Popover.Button
+                  <a
+                    href={menu.attributes.slug}
                     className="flex items-center gap-x-1 text-sm text-gray-900 font-semibold leading-6  dark:text-slate-50 hover:text-sky-500"
-                    ref={(ref) => (triggerRef.current[menu.id] = ref)}
                   >
                     {menu.attributes.label}
-                  </Popover.Button>
+                  </a>
                 </Popover>
               </Popover.Group>
             );
