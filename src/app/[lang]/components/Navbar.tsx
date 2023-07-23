@@ -202,7 +202,7 @@ export default function Navbar({
                                 <Disclosure.Button
                                   key={item.title}
                                   as="a"
-                                  href={item.url}
+                                  href={item.slug}
                                   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7"
                                 >
                                   {item.title}
