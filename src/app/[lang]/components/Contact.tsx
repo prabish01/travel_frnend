@@ -27,6 +27,18 @@ const Contact = () => {
 
   const token = process.env.NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN;
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -48,13 +60,13 @@ const Contact = () => {
         body: JSON.stringify({ data: values }),
       });
       if (res.status === 200) {
-        Swal.fire({
+        Toast.fire({
           icon: "success",
           text: "Your message has been sent!",
         });
         resetForm();
       } else {
-        Swal.fire({
+        Toast.fire({
           title: "Oops...",
           text: "Something went wrong!",
           icon: "error",
