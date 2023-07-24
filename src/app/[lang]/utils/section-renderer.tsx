@@ -6,10 +6,11 @@ import Pricing from "../components/Pricing";
 import Email from "../components/Email";
 import FeatureRow from "../components/FeatureRow";
 import Statistic from "../components/Statistic";
-import ArticleList from "../components/ArticleList";
+import PageRichText from "../components/PageRichtext";
 
 
 export function sectionRenderer(section: any, index: number) {
+
 
   switch (section.__component) {
     case "sections.hero":
@@ -26,6 +27,8 @@ export function sectionRenderer(section: any, index: number) {
       return <FeatureRow key={index} data={section} />;
     case "sections.statistics":
       return <Statistic key={index} data={section}/>;
+    case "sections.rich-text":
+      return <PageRichText key={index} data={section} />;
     default:
       return null;
   }

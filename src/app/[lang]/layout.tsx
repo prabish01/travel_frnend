@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const { url } = favicon.data.attributes;
 
   return {
-    metadataBase: new URL("https://speedwingshr.com"),
+    metadataBase: new URL("https://www.speedwingshr.com"),
     applicationName: metadata.metaTitle,
     referrer: "origin-when-cross-origin",
     icons: {

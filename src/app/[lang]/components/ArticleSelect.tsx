@@ -59,9 +59,6 @@ export default function ArticleSelect({
               </Link>
             );
           })}
-          <Link href={"/blog"} className={selectedFilter("", "filter")}>
-            Explore everything!
-          </Link>
         </div>
 
         {/* <div className="space-y-2">

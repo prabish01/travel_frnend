@@ -4,16 +4,14 @@ import Image from "next/image";
 
 interface FeaturesProps {
   data: {
-    id:number;
+    id: number;
     heading: string;
     description: string;
     feature: Feature[];
-
   };
 }
 
 interface Feature {
-
   id: string;
   title: string;
   description: string;
@@ -21,7 +19,7 @@ interface Feature {
   newTab: boolean;
   url: string;
   text: string;
-  media:Picture;
+  media: Picture;
 }
 
 interface Picture {
@@ -37,49 +35,62 @@ interface Picture {
 
 export default function Features({ data }: FeaturesProps) {
   return (
-    
     <div className="dark:bg-gray-900 py-12 sm:py-16">
-    <div className="rounded-2xl dark:bg-gray-900 p-8 text-sm leading-6 mx-auto max-w-7xl px-6 lg:px-8 flex items-center">
-      <div className="mx-auto grid content-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        <div className="flex justify-center h-full"> {/* Added div with flex and justify-center */}
-          <h2 className="font-bold tracking-normal sm:text-4xl my-auto"> {/* Added 'my-auto' class */}
-            {data.heading}
-          </h2>
+      <div className="rounded-2xl dark:bg-gray-900 p-8 text-sm leading-6 mx-auto max-w-7xl px-6 lg:px-8 flex items-center">
+        <div className="mx-auto grid content-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          <div className="flex justify-center h-full">
+            {" "}
+            {/* Added div with flex and justify-center */}
+            <h2 className="font-bold tracking-normal sm:text-4xl my-auto">
+              {" "}
+              {/* Added 'my-auto' class */}
+              {data.heading}
+            </h2>
+          </div>
+          {/* <p>{data.description}< /p> */}
+          <dl className="col-span-2  grid grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2">
+            {data.feature.map((feature: Feature) => (
+              // <FadeIn>
+              <div
+                key={feature.id}
+                className="rounded-2xl p-4 bg-gray-100 dark:bg-gray-800"
+              >
+                <dt className="text-base font-semibold leading-7 dark:text-slate-50 ">
+                  <div className="mb-4 flex h-50 w-50 items-center justify-center">
+                    <Image
+                      src={feature.media.data.attributes.url}
+                      alt={
+                        feature.media.data.attributes.alternativeText ??
+                        "Speed Wings Human Resource"
+                      }
+                      width={130}
+                      height={130}
+                      className="h-100 w-100"
+                    />
+                  </div>
+                  {feature.title}
+                </dt>
+                <dd className="mt-1 text-base text-justify leading-7 dark:text-gray-400">
+                  {feature.description}
+                </dd>
+                {feature.showLink && feature.url && feature.text && (
+                  <p className="mt-6">
+                    <Link
+                      href={feature.url}
+                      className="text-sm font-semibold leading-6 text-blue-400"
+                    >
+                      {feature.text} <span aria-hidden="true">→</span>
+                    </Link>
+                  </p>
+                )}
+              </div>
+
+              // </FadeIn>
+            ))}
+          </dl>
+
         </div>
-        {/* <p>{data.description}< /p> */}
-        <dl className="col-span-2  grid grid-cols-1 gap-x-16 gap-y-16 sm:grid-cols-2">
-          {data.feature.map((feature: Feature) => (
-            // <FadeIn>
-            <div key={feature.id} className="rounded-2xl p-4 bg-gray-100 dark:bg-gray-800">
-              <dt className="text-base font-semibold leading-7 dark:text-slate-50 ">
-                <div className="mb-4 flex h-50 w-50 items-center justify-center">
-                  <Image
-                    src={feature.media.data.attributes.url}
-                    alt={feature.media.data.attributes.alternativeText ?? "Speed Wings Human Resource"}
-                    width={130}
-                    height={130}
-                    className="h-100 w-100"
-                  />
-                </div>
-                {feature.title}
-              </dt>
-              <dd className="mt-1 text-base text-justify leading-7 dark:text-gray-400">{feature.description}</dd>
-              {feature.showLink && feature.url && feature.text && (
-                <p className="mt-6">
-                  <Link href={feature.url} className="text-sm font-semibold leading-6 text-blue-400">
-                    {feature.text} <span aria-hidden="true">→</span>
-                  </Link>
-                </p>
-              )}
-            </div>
-            // </FadeIn>
-          ))}
-        </dl>
       </div>
     </div>
-  </div>
-  
-
   );
- 
 }
