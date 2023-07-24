@@ -42,9 +42,9 @@ export default function Hero({ data }: HeroProps) {
       <Image
         src={imgUrl}
         alt={alternativeText}
-        className="opacity-75 absolute inset-0 -z-10 h-full w-full object-cover"
-        width={500}
-        height={500}
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        width={1280}
+        height={720}
         priority
       />
 

@@ -67,8 +67,8 @@ export default function FeatureRow({ data }: FeaturesRowProps) {
                 src={feature?.icon?.data?.attributes.url}
                 alt={feature?.icon?.data?.attributes.alternativeText}
                 className="left-1 top-1 h-13 w-13 mb-2"
-                width={130}
-                height={130}
+                width={150}
+                height={150}
               />
               <dt className="text-left font-semibold dark:text-slate-50 ">{feature.title}</dt>
               <dd className="mt-1 text-base text-justify leading-7 text-gray-400">
