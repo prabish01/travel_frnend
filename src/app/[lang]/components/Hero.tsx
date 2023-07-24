@@ -54,7 +54,7 @@ export default function Hero({ data }: HeroProps) {
           <h1 className="text-3xl font-bold leading-8 tracking-wide text-left lg:text-5xl">
           {data.title}
           </h1>
-          <p className="mt-6 text-lg text-left leading-8 lg:text-3xl">
+          <p className="mt-6 text-lg text-left leading-8 text-slate-50 lg:text-3xl">
           {data.description}
           </p>
 
