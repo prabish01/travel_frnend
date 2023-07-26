@@ -8,12 +8,12 @@ import Contact from "../components/Contact";
 type Props = {
   params: {
     lang: string;
-    slug: string;
+    category: string;
   };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const page = await getPageBySlug(params.slug, params.lang);
+  const page = await getPageBySlug(params.category, params.lang);
 
   if (!page.data[0].attributes?.seo) return FALLBACK_SEO;
   const metadata = page.data[0].attributes.seo;
@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: metadata.metaTitle,
     description: metadata.metaDescription,
     alternates: {
-      canonical: `/${params.lang}/${params.slug}`,
+      canonical: `/${params.lang}/${params.category}`,
     },
     openGraph: {
       title: metadata.metaTitle,
       description: metadata.metaDescription,
-      url: `/${params.lang}/${params.slug}`,
+      url: `/${params.lang}/${params.category}`,
       siteName: metadata.metaTitle,
       images: [
         {
@@ -44,13 +44,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PageRoute({ params }: Props) {
-  const page = await getPageBySlug(params.slug, params.lang);
+  const page = await getPageBySlug(params.category, params.lang);
+  console.log(params)
+  
   if (page.data.length === 0) return null;
   const { articles, contentSections, contactFormDisplay, articleDisplay } =
     page.data[0].attributes;
 
   const articlesRefined = articles.data;
-  // console.log("cfrgrc",page.data[0].attributes)
+  
 
   return (
     <>

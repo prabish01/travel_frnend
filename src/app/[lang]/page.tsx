@@ -32,6 +32,7 @@ export default async function RootRoute({
       )}
 
       {articleDisplay && <ArticleList data={articlesRefined} />} 
+     
 
        {contactFormDisplay && <Contact />}
 
