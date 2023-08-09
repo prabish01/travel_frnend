@@ -3,7 +3,6 @@ import Hero from "../components/Hero";
 import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
-import Email from "../components/Email";
 import FeatureRow from "../components/FeatureRow";
 import Statistic from "../components/Statistic";
 import PageRichText from "../components/PageRichtext";
@@ -21,8 +20,7 @@ export function sectionRenderer(section: any, index: number) {
       return <Testimonials key={index} data={section} />;
     case "sections.pricing":
       return <Pricing key={index} data={section} />;
-    case "sections.lead-form":
-      return <Email key={index} data={section} />;
+
     case "sections.feature-rows-group":
       return <FeatureRow key={index} data={section} />;
     case "sections.statistics":
