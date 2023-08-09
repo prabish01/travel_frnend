@@ -10,7 +10,6 @@ import Navbar from "./components/Navbar";
 import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
 import { LogoJsonLd } from "next-seo";
 
-
 async function getGlobal(): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
@@ -20,17 +19,7 @@ async function getGlobal(): Promise<any> {
   const options = { headers: { Authorization: `Bearer ${token}` } };
 
   const urlParamsObject = {
-    populate: [
-      "metadata.shareImage",
-      "favicon",
-      "notificationBanner.link",
-      "navbar.navbarLogo.logoImg",
-      "footer.footerLogo.logoImg",
-      "footer.menuLinks",
-      "footer.legalLinks",
-      "footer.socialLinks",
-      "footer.categories",
-    ],
+    populate: ["metadata.shareImage", "favicon", "notificationBanner.link", "navbar.navbarLogo.logoImg", "footer.footerLogo.logoImg", "footer.menuLinks", "footer.legalLinks", "footer.socialLinks", "footer.categories"],
   };
   return await fetchAPI(path, urlParamsObject, options);
 }
@@ -96,13 +85,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+export default async function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: string } }) {
   const global = await getGlobal();
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global.data) return null;
@@ -117,32 +100,14 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body>
-        <Navbar
-          menuItems={menuItems}
-          logoUrl={navbarLogoUrl}
-          logoText={navbar.navbarLogo.logoText}
-        />
-        <LogoJsonLd
-        useAppDir={true}
-      logo={navbarLogoUrl}
-      url={`${process.env.NEXT_PUBLIC_DOMAIN}`}
-    />
+        <Navbar menuItems={menuItems} logoUrl={navbarLogoUrl} logoText={navbar.navbarLogo.logoText} />
+        <LogoJsonLd useAppDir={true} logo={navbarLogoUrl} url={`${process.env.NEXT_PUBLIC_DOMAIN}`} />
 
-        <main className="dark:bg-gray-900 dark:text-gray-400 min-h-screen">
-          {children}
-        </main>
-        
+        <main className="dark:bg-teal-950 dark:text-slate-400 min-h-screen">{children}</main>
 
         <Banner data={notificationBanner} />
-   
-        <Footer
-          logoUrl={footerLogoUrl}
-          logoText={footer.footerLogo.logoText}
-          menuLinks={footer.menuLinks}
-          categoryLinks={footer.categories.data}
-          legalLinks={footer.legalLinks}
-          socialLinks={footer.socialLinks}
-        />
+
+        <Footer logoUrl={footerLogoUrl} logoText={footer.footerLogo.logoText} menuLinks={footer.menuLinks} categoryLinks={footer.categories.data} legalLinks={footer.legalLinks} socialLinks={footer.socialLinks} />
       </body>
     </html>
   );

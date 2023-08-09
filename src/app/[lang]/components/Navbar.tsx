@@ -19,15 +19,7 @@ function classNames(...classes: string[]) {
 
 const timeoutDuration = 120;
 
-export default function Navbar({
-  logoUrl,
-  logoText,
-  menuItems,
-}: {
-  logoUrl: string | null;
-  logoText: string | null;
-  menuItems: any;
-}) {
+export default function Navbar({ logoUrl, logoText, menuItems }: { logoUrl: string | null; logoText: string | null; menuItems: any }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const triggerRef = useRef<any[]>([]);
   const timeOutRef = useRef<any[]>([]);
@@ -36,31 +28,21 @@ export default function Navbar({
     clearTimeout(timeOutRef.current[id]);
     !isOpen && triggerRef.current[id].click();
   };
-// console.log(menuItems.data);
+  // console.log(menuItems.data);
   const handleLeave = (isOpen: any, id: any) => {
     timeOutRef.current[id] = setTimeout(() => {
       isOpen && triggerRef.current[id].click();
     }, timeoutDuration);
   };
 
-
   return (
-    <header className="dark:bg-gray-900 dark:text-slate-100">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between sm:px-7"
-        aria-label="Global"
-      >
+    <header className="dark:bg-teal-950 dark:text-teal-100">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between sm:px-7" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Logo src={logoUrl}>
-            {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-          </Logo>
+          <Logo src={logoUrl}>{logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}</Logo>
         </div>
         <div className="flex mr-6 lg:hidden">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
+          <button type="button" className="inline-flex items-center justify-center rounded-md p-2.5 text-teal-300" onClick={() => setMobileMenuOpen(true)}>
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
@@ -68,48 +50,22 @@ export default function Navbar({
         {menuItems.data.map((menu: any) => {
           if (menu.attributes.links.length > 0) {
             return (
-              <Popover.Group
-                className="hidden lg:flex lg:gap-x-12 mr-14"
-                key={menu.id}
-              >
+              <Popover.Group className="hidden lg:flex lg:gap-x-12 mr-14" key={menu.id}>
                 <Popover className="relative">
                   {({ open }) => (
-                    <div
-                      onMouseEnter={() => handleEnter(open, menu.id)}
-                      onMouseLeave={() => handleLeave(open, menu.id)}
-                    >
-                      <Popover.Button
-                        className="flex items-center gap-x-1 text-sm font-semibold leading-6 dark:text-white-900"
-                        ref={(ref) => (triggerRef.current[menu.id] = ref)}
-                      >
+                    <div onMouseEnter={() => handleEnter(open, menu.id)} onMouseLeave={() => handleLeave(open, menu.id)}>
+                      <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 dark:text-white-900" ref={(ref) => (triggerRef.current[menu.id] = ref)}>
                         {menu.attributes.label}
-                        <ChevronDownIcon
-                          className="h-5 w-5 flex-none text-gray-400"
-                          aria-hidden="true"
-                        />
+                        <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                       </Popover.Button>
 
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-200"
-                        enterFrom="opacity-0 translate-y-1"
-                        enterTo="opacity-100 translate-y-0"
-                        leave="transition ease-in duration-150"
-                        leaveFrom="opacity-100 translate-y-0"
-                        leaveTo="opacity-0 translate-y-1"
-                      >
+                      <Transition as={Fragment} enter="transition ease-out duration-200" enterFrom="opacity-0 translate-y-1" enterTo="opacity-100 translate-y-0" leave="transition ease-in duration-150" leaveFrom="opacity-100 translate-y-0" leaveTo="opacity-0 translate-y-1">
                         <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                           <div className="p-4">
                             {menu?.attributes?.links.map((item: any) => (
-                              <div
-                                key={item.title}
-                                className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
-                              >
+                              <div key={item.title} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6">
                                 <div className="flex-auto">
-                                  <Link
-                                    href={item.slug}
-                                    className="block font-semibold text-gray-900 hover:text-sky-400"
-                                  >
+                                  <Link href={item.slug} className="block font-semibold text-gray-900 hover:text-sky-400">
                                     {item.title}
                                     <span className="absolute inset-0" />
                                   </Link>
@@ -127,15 +83,9 @@ export default function Navbar({
             );
           } else {
             return (
-              <Popover.Group
-                className="hidden lg:flex lg:gap-x-12 mr-14"
-                key={menu.id}
-              >
+              <Popover.Group className="hidden lg:flex lg:gap-x-12 mr-14" key={menu.id}>
                 <Popover className="relative">
-                  <a
-                    href={menu.attributes.slug}
-                    className="flex items-center gap-x-1 text-sm text-gray-900 font-semibold leading-6  dark:text-slate-50 hover:text-sky-500"
-                  >
+                  <a href={menu.attributes.slug} className="flex items-center gap-x-1 text-sm text-teal-400 font-semibold leading-6  dark:text-slate-50 hover:text-sky-500">
                     {menu.attributes.label}
                   </a>
                 </Popover>
@@ -154,12 +104,7 @@ export default function Navbar({
           </div> */}
       </nav>
 
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
+      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10 " />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full text-gray-900 bg-slate-50 overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:text-slate-50 ">
           <div className="flex items-center justify-between">
@@ -169,11 +114,7 @@ export default function Navbar({
                 <Logo src={logoUrl} />
               </div>
             </Link>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
@@ -189,22 +130,11 @@ export default function Navbar({
                           <>
                             <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7">
                               {menu.attributes.label}
-                              <ChevronDownIcon
-                                className={classNames(
-                                  open ? "rotate-180" : "",
-                                  "h-5 w-5 flex-none"
-                                )}
-                                aria-hidden="true"
-                              />
+                              <ChevronDownIcon className={classNames(open ? "rotate-180" : "", "h-5 w-5 flex-none")} aria-hidden="true" />
                             </Disclosure.Button>
                             <Disclosure.Panel className="mt-2 space-y-2">
                               {menu.attributes.links.map((item: any) => (
-                                <Disclosure.Button
-                                  key={item.title}
-                                  as="a"
-                                  href={item.slug}
-                                  className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7"
-                                >
+                                <Disclosure.Button key={item.title} as="a" href={item.slug} className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7">
                                   {item.title}
                                 </Disclosure.Button>
                               ))}
@@ -215,13 +145,7 @@ export default function Navbar({
                     );
                   } else {
                     return (
-                 
-                      <Link
-                        key={menu.id}
-                        href={menu.attributes.slug}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7"
-                      >
-                            
+                      <Link key={menu.id} href={menu.attributes.slug} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7">
                         {menu.attributes.label}
                       </Link>
                     );

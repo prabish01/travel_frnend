@@ -7,16 +7,18 @@ body {
   @apply dark:bg-black;
 }
 
-h1,h2,h3{
-  @apply tracking-wide text-orange-400;
+h1,
+h2,
+h3 {
+  @apply tracking-wide text-teal-400;
 }
-h1{
+h1 {
   @apply text-6xl;
 }
-h3{
-@apply text-4xl;
+h3 {
+  @apply text-4xl text-teal-400;
 }
-h2{
+h2 {
   @apply text-5xl;
 }
 .progress-bar {
@@ -25,36 +27,36 @@ h2{
   left: 0;
   right: 0;
   height: 7px;
-  @apply bg-sky-400;
+  @apply bg-teal-400;
   transform-origin: 0%;
 }
 /******************************************* 
   Rich Text Styles
-*******************************************/ 
+*******************************************/
 
 /* Headers */
 .rich-text h1 {
-  @apply text-4xl font-bold mb-4 text-sky-400;
+  @apply text-4xl font-bold mb-4 text-teal-400;
 }
 
 .rich-text h2 {
-  @apply text-3xl font-bold mb-4 text-sky-400;
+  @apply text-3xl font-bold mb-4 text-teal-400;
 }
 
 .rich-text h3 {
-  @apply text-2xl font-bold mb-4 text-sky-400;
+  @apply text-2xl font-bold mb-4 text-teal-400;
 }
 
 .rich-text h4 {
-  @apply text-xl font-bold mb-4 text-sky-400;
+  @apply text-xl font-bold mb-4 text-teal-400;
 }
 
 .rich-text h5 {
-  @apply text-lg font-bold mb-4 text-sky-400;
+  @apply text-lg font-bold mb-4 text-teal-400;
 }
 
 .rich-text h6 {
-  @apply text-base font-bold mb-4 text-sky-200;
+  @apply text-base font-bold mb-4 text-teal-200;
 }
 
 /* Horizontal rules */
@@ -63,14 +65,13 @@ h2{
 }
 
 .rich-text a {
-  @apply text-sky-400 underline;
+  @apply text-teal-400 underline;
 }
 
 /* Typographic replacements */
 .rich-text p {
   @apply mb-4 text-justify;
 }
-
 
 /* Emphasis */
 .rich-text strong {
@@ -113,11 +114,11 @@ h2{
 
 /* Code blocks */
 .rich-text pre {
-  @apply font-mono bg-gray-900 text-gray-100 rounded p-4  my-6;
+  @apply font-mono bg-red-300 text-teal-400 rounded p-4  my-6;
 }
 
 .rich-text code {
-  @apply font-mono bg-gray-900 text-gray-100 rounded px-2 py-1;
+  @apply font-mono bg-gray-900 text-teal-400 rounded px-2 py-1;
 }
 
 /* Tables */
@@ -143,10 +144,9 @@ h2{
   @apply bg-yellow-100 border-yellow-500 text-yellow-700 px-4 py-2 rounded-lg mb-4;
 }
 
-
 /******************************************* 
   React Slideshow Styles
-*******************************************/   
+*******************************************/
 
 .react-slideshow-container [aria-label="Previous Slide"] {
   margin-left: 1rem;
